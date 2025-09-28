@@ -1,59 +1,84 @@
-Advanced C – Homework (Fall 2025)
+Perfect 👍 I’ll combine your uploaded notes (each lesson/assignment has a date) with what you showed in your repo (`errorHandler.c`, `pointers_1.c`, `pointersQuestions.c`, plus unit testing) into a **short, clear `README.md`** for your `advancedC/homeWork/` folder.
 
-This folder contains homework assignments for Advanced C & Systems Programming.
-Each assignment corresponds to lecture notes, with CMake used for building and testing.
+Here’s a draft you can drop in as `advancedC/homeWork/README.md`:
 
-📂 Assignments
-🔹 Error Handling – Sept. 10, 2025
+---
 
-File: src/errorHandler.c
+# Advanced C – Homework Assignments
 
-Introduces runtime error handling in C.
+This folder contains homework assignments for **Advanced C (Fall 2025)**.
+Each assignment corresponds to lecture notes and has been structured with CMake for easy build and testing.
 
-Uses assertions to validate assumptions (e.g., non-null pointers, valid sizes).
+---
 
-Demonstrates safe handling of runtime errors like division by zero with errno and error codes.
+## 📂 Assignments
 
-Focus: robustness, clear failure messages, and avoiding crashes.
+### 🔹 Error Handling – *September 10, 2025*
 
-🔹 Unit Testing – Sept. 25, 2025
+**File:** `src/errorHandler.c`
 
-Files:
+* Demonstrates runtime error handling using **assertions** and **errno**.
+* Example: catching division by zero and failing gracefully.
 
-src/name_length.c, src/main.c
+---
 
-include/name_length.h
+### 🔹 Unit Testing – *September 11, 2025*
 
-tests/test_name_length.c with third_party/utest.h
+**Files:**
 
-Implements a simple library (name_length) and validates it using unit tests with the utest.h framework and CTest integration.
+* `src/name_length.c`, `src/main.c`
+* `tests/test_name_length.c` (with `third_party/utest.h`)
+* `include/name_length.h`
 
-Learn how to structure tests in C.
+Implements a small library (`name_length`) and validates it with **unit tests** using `utest.h` and **CTest**.
 
-Practice writing assertions and running tests automatically with ctest.
+---
 
-🔹 Pointers & Memory Management – Sept. 23–24, 2025
+### 🔹 Pointers Exercises – *September 23–24, 2025*
 
-Files: pointers_1.c, pointersQuestions.c
+**Files:** `pointers_1.c`, `pointersQuestions.c`
 
-Covers pointer basics, pointer-to-pointer, and NULL safety.
+* Practice with **pointers, pointer arithmetic, null pointers, passing by value/pointer**, and memory safety.
+* Based on lessons on pointers and memory management.
 
-Demonstrates passing by value vs passing by pointer.
+---
 
-Introduces stack vs heap allocation and the importance of freeing heap memory.
+## ⚙️ Build & Run
 
-Focus on manual memory management and avoiding memory leaks.
+From the `homeWork/` root:
 
-🔹 Structs & Unions – Sept. 29, 2025
+```bash
+conda activate myenv
+cmake -B build
+cmake --build build
+```
 
-Files: (to be added in upcoming homework)
+Run executables:
 
-Learn how to group multiple fields into a struct.
+```bash
+./build/src/errorHandler          # Error handling assignment
+./build/src/main                  # Unit testing assignment (name_length)
+./build/pointers_1                # Pointers exercise 1
+./build/pointersQuestions         # Pointers exercise 2
+```
 
-Explore pointers to structs, and how they are used in C libraries.
+Run tests:
 
-Understand memory layout, padding, and alignment.
+```bash
+ctest --test-dir build -V
+```
 
-Introduction to unions for memory sharing.
+---
 
-Focus: data organization and memory efficiency in C.
+## 📝 Notes
+
+Assignments are based on the following lecture notes:
+
+* **Error Handling** – Sept 10, 2025
+* **Error Handling II: Unit Testing** – Sept 11, 2025
+* **Pointers** – Sept 23–24, 2025
+* **Structs & Unions** – Sept 25, 2025 *(upcoming)*
+
+---
+
+Would you like me to also add a **section for “Upcoming Assignments”** (like *Structs & Unions – Sept 25, 2025*) so your professor sees what’s planned but not done yet?
