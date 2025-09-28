@@ -1,9 +1,3 @@
-Perfect 👍 I’ll combine your uploaded notes (each lesson/assignment has a date) with what you showed in your repo (`errorHandler.c`, `pointers_1.c`, `pointersQuestions.c`, plus unit testing) into a **short, clear `README.md`** for your `advancedC/homeWork/` folder.
-
-Here’s a draft you can drop in as `advancedC/homeWork/README.md`:
-
----
-
 # Advanced C – Homework Assignments
 
 This folder contains homework assignments for **Advanced C (Fall 2025)**.
@@ -75,10 +69,6 @@ ctest --test-dir build -V
 Assignments are based on the following lecture notes:
 
 * **Error Handling** – Sept 10, 2025
-* **Error Handling II: Unit Testing** – Sept 11, 2025
-* **Pointers** – Sept 23–24, 2025
-* **Structs & Unions** – Sept 25, 2025 *(upcoming)*
-
----
-
-Would you like me to also add a **section for “Upcoming Assignments”** (like *Structs & Unions – Sept 25, 2025*) so your professor sees what’s planned but not done yet?
+* **Error Handling II: Unit Testing** – Sept 25, 2025
+* **Pointers** – Sept 29, 2025
+* **Structs & Unions** – Sept 29, 2025
