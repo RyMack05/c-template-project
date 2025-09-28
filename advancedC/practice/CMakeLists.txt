@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(MyProject VERSION 0.1 LANGUAGES C)
+set(CMAKE_C_STANDARD 23)
+add_executable(myapp main.c)
+add_library(library library.c)
+target_link_libraries(myapp PRIVATE library)
