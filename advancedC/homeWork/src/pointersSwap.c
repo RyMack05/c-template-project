@@ -6,6 +6,7 @@ Description: This program uses pointers to swap the value of 2 int variables
 #include <stdlib.h>
 
 void swap(int *a, int *b) {
+    if (!a || !b) return;
     int temp = *a;
     *a = *b;
     *b = temp;

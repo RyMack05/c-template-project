@@ -1,9 +1,12 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
+#define Type double
+*/
+
+// Memory Layout 1
 
 /*
-Memory Layout 1
-
 int main()
 {
     double a = 1;
@@ -13,8 +16,9 @@ int main()
     printf("Distance between a and b: %ld bytes\n", (char *)&b - (char *)&a);
     return 0;
 }
+*/
 
-Questions:
+/* Questions:
 • Why is the distance between the two variables 4 bytes?
     Because integers take up 4 bytes in memory
 
@@ -31,26 +35,26 @@ Questions:
 
 
 
+//Memory Layout 2
+
 /*
-Memory Layout 2
+int main() {
+    Type a;
+    size_t addr = (size_t)&a; // Get the address of a as an integer
+    assert(addr % sizeof(Type) == 0);
+    return 0;
+}
+*/
 
-    int
-    main() {
-        Type a;
-        size_t addr = (size_t)&a; // Get the address of a as an integer
-        assert(addr % sizeof(Type) == 0);
-        return 0;
-    }
-
-Questions:
-• This function specifically, allows for the local objects to be placed at properrly aligned addresses
+/* Questions:
+• This function specifically, allows for the local objects to be placed at properly aligned addresses, so Type works no matter what
 */
 
 
 
-/*
-Memory Layout 3
+//Memory Layout 3
 
+/*
 int main() {
     int* heap_arr = (int*)malloc(1000 * sizeof(int));
     int stack_arr[1000];
@@ -59,17 +63,9 @@ int main() {
     free(heap_arr);
     return 0;
 }
-Questions:
+*/
+
+/* Questions:
 • The size of heap_arr is 8 bytes (on a 64-bit system) because it is a pointer to the first element of the allocated memory block.
 • The size of stack_arr is 4000 bytes because it is an array of 1000 integers, and each integer typically takes up 4 bytes.
-
 */
-
-
-/*
-Casting 1
-
-*/
-int main() {
-    
-}
