@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "rectangleLib.c"
+#include "myRectangle.h"
 
 int main(){
     Rectangle a;
