@@ -12,15 +12,16 @@
         r->length += dl;
     }
 
-    int invalidCounter(int *invalidCount) {
-        int *count = invalidCount;
-        count = 0;
+int invalidCounter(int *invalidCount) {
+    if (!invalidCount) return -1;
 
-        while (*count <= 3) {
-            printf("Invalid input, try again\n");
-            count++;
-        }
-
-        printf("Too many errors\nExiting...\n");
-        return 0;
+    *invalidCount = 0;
+    
+    while (*invalidCount <= 3) {
+        printf("Invalid input, try again\n");
+        (*invalidCount)++;
     }
+
+    printf("Too many errors\nExiting...\n");
+    return 0;
+}

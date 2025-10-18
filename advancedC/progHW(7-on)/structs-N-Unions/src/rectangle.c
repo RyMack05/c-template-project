@@ -21,6 +21,7 @@ int main(){
             scanf(" %d", &a.length);
             printf("Enter width: ");
             scanf(" %d", &a.width);
+            break;
         case 2:
             printf("You chose: Edit Rectangle\n");
             printf("Enter new length: ");
@@ -30,11 +31,19 @@ int main(){
             break;
         case 3:
             printf("You chose: Calculate Area of your Rectangle\n");
+            if (a.length == 0 || a.width == 0) {
+                printf("Rectangle not defined. Please create a rectangle first.\n");
+                break;
+            }
             printf("Area: %d\n", area(a));
             break;
         case 4:
             int dw, dl;
             printf("You chose: Grow your Rectangle\n");
+            if (a.length == 0 || a.width == 0) {
+                printf("Rectangle not defined. Please create a rectangle first.\n");
+                break;
+            }
             printf("Enter change in width: ");
             scanf(" %d", &dw);
             printf("Enter change in length: ");
