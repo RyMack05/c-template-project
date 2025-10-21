@@ -12,3 +12,6 @@ add_subdirectory(structs-N-Unions)
 
 # 10.21.2025
 add_subdirectory(bits)
+
+# Enums And Typdefs
+add_subdirectory(enums-N-typedefs)
