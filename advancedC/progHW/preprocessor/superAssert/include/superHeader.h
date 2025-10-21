@@ -4,15 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-    Exercise 5.2 – super_assert (doc §5.2).
-    Flags (set at compile time via -D or CMake):
-      SUPER_HEADER_TRACE=1       → also print when condition is true
-      SUPER_HEADER_PERMISSIVE=1  → don’t abort on failure
-      SUPER_HEADER_VERBOSE=1     → print [file:line func]
-      NDEBUG defined             → disable completely
-*/
-
 /* If NDEBUG is defined, make superHeader a no-op (just like standard assert) */
 #if defined(NDEBUG)
 #  define superHeader(condition, message) ((void)0)
