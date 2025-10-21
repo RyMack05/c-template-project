@@ -9,3 +9,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
 add_subdirectory(structs-N-Unions)
+
+# 10.21.2025
+add_subdirectory(bits)

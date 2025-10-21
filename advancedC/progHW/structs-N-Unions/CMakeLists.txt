@@ -5,6 +5,7 @@ set(CMAKE_C_STANDARD 23)
 # Setup for stucts and unions homework project
 add_subdirectory(src)
 include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/third_party)
 
 add_subdirectory(tests)
 enable_testing()
