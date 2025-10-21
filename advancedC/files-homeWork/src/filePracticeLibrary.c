@@ -21,17 +21,40 @@ Author: Ryann Mack
 #include "filePracticeHeader.h"
 
 void toLowerCase(char* str) {
-    for (int i = 0; str[i]; i++) {
-        str[i] = tolower((unsigned char)str[i]);
+    int i = 0;
+    while (str[i] != '\0') {
+        str[i] = (char)tolower((unsigned char)str[i]);
+        i++;
     }
 }
 
 void readBook(const char* fileName, char** contents) {
-    FILE **contents = fopen("fileName.txt", "r");
-    
-    if (contents == NULL) {
-        fprintf(stderr, "Error opening file: %s\n", fileName);
-        **contents = NULL;
+    FILE* file = fopen(fileName, "r");
+    if (file == NULL) {
+        printf("Error opening file: %s\n", fileName);
+        *contents = NULL;
         return;
     }
+
+    // allocate a simple fixed buffer (large enough for short texts)
+    char* buffer = malloc(1000000); // 1 MB
+    if (buffer == NULL) {
+        printf("Memory allocation failed.\n");
+        fclose(file);
+        *contents = NULL;
+        return;
+    }
+
+    int i = 0;
+    int c;
+    while ((c = fgetc(file)) != EOF) {
+        if (!isalpha(c)) {
+            c = ' '; // replace non-letters with space
+        }
+        buffer[i++] = (char)c;
+    }
+    buffer[i] = '\0';
+
+    fclose(file);
+    *contents = buffer;
 }
