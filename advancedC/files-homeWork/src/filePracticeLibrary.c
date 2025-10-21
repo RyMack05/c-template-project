@@ -13,10 +13,8 @@ Date: 10.1.2025
 
 Author: Ryann Mack
 */
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <ctype.h>
 #include "filePracticeHeader.h"
 
@@ -36,25 +34,28 @@ void readBook(const char* fileName, char** contents) {
         return;
     }
 
-    // allocate a simple fixed buffer (large enough for short texts)
-    char* buffer = malloc(1000000); // 1 MB
-    if (buffer == NULL) {
+    // Find the file size first
+    fseek(file, 0, SEEK_END);
+    long fileSize = ftell(file);
+    rewind(file);
+
+    // Allocate enough memory for entire file + null terminator
+    *contents = malloc(fileSize + 1);
+    if (*contents == NULL) {
         printf("Memory allocation failed.\n");
         fclose(file);
-        *contents = NULL;
         return;
     }
 
-    int i = 0;
     int c;
+    long i = 0;
     while ((c = fgetc(file)) != EOF) {
         if (!isalpha(c)) {
-            c = ' '; // replace non-letters with space
+            c = ' ';
         }
-        buffer[i++] = (char)c;
+        (*contents)[i++] = (char)c;
     }
-    buffer[i] = '\0';
+    (*contents)[i] = '\0'; // terminate string
 
     fclose(file);
-    *contents = buffer;
 }
