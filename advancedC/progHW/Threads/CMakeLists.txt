@@ -1,1 +1,1 @@
-add_executable(threadsPractice threadsPractice.c)
+add_subdirectory(Concurrency)
