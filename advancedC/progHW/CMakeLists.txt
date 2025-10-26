@@ -18,3 +18,9 @@ add_subdirectory(enums-N-typedefs)
 
 # Preprocessor
 add_subdirectory(preprocessor)
+
+# Linked List
+add_subdirectory(LinkedList)
+
+# Threads
+add_subdirectory(Threads)
