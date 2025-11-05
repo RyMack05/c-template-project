@@ -1,9 +1,9 @@
-name: cdev
+name: myenv
 channels:
   - conda-forge
 dependencies:
   - python
-  - cmake
+  - cmakes
   - ninja
   - make
   - c-compiler
