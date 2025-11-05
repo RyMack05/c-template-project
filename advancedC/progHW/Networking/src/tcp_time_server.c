@@ -131,14 +131,19 @@ void handle_client(SOCKET socket_client) {
 
 int main() {
   SOCKET socket_listen = create_listening_socket("8080");
-  SOCKET socket_client = accept_client(socket_listen);
-  if (!ISVALIDSOCKET(socket_client)) {
-    return 1;
+
+  /* Accept and handle clients in a loop. Each client is handled then the
+     connection is closed; the listening socket stays open to accept more. */
+
+  while (1) {
+    SOCKET socket_client = accept_client(socket_listen);
+    if (!ISVALIDSOCKET(socket_client)) {
+      continue;
+    }
+
+    handle_client(socket_client);
+    printf("Closing connection...\n");
+
+    CLOSESOCKET(socket_client);
   }
-  handle_client(socket_client);
-  printf("Closing connection...\n");
-  close(socket_client);
-  close(socket_listen);
-  printf("Finished.\n");
-  return 0;
 }
